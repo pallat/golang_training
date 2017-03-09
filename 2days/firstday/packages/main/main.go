@@ -1,6 +1,6 @@
 package main
 
-import "training/2days/firstday/pack/hello"
+import "training/2days/firstday/packages/hello"
 
 func main() {
 	hello.Println("world")
