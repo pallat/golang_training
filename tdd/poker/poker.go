@@ -26,10 +26,30 @@ func compare(black, white cards) string {
 	}
 
 	if mxBlck > mxWhte {
-		return "Black wins - high card: Ace"
+		return "Black wins - high card: " + rank(mxBlck)
 	}
 
-	return "White wins - high card: Ace"
+	return "White wins - high card: " + rank(mxWhte)
+}
+
+func rank(i int) string {
+	mapping := map[int]string{
+		1:  "1",
+		2:  "2",
+		3:  "3",
+		4:  "4",
+		5:  "5",
+		6:  "6",
+		7:  "7",
+		8:  "8",
+		9:  "9",
+		10: "10",
+		11: "Jack",
+		12: "Queen",
+		13: "King",
+		14: "Ace",
+	}
+	return mapping[i]
 }
 
 func val(s string) int {
