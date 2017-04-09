@@ -29,6 +29,10 @@ func compare(black, white cards) string {
 		return "Black wins - high card: " + rank(mxBlck)
 	}
 
+	if mxBlck == mxWhte {
+		return "Tie"
+	}
+
 	return "White wins - high card: " + rank(mxWhte)
 }
 
