@@ -1,8 +1,6 @@
 package poker
 
-import (
-	"strconv"
-)
+import "strconv"
 
 type card struct {
 	rank string
@@ -13,6 +11,13 @@ type cards []card
 
 func compare(black, white cards) string {
 	mxBlck, mxWhte := 0, 0
+
+	if (pair(black) + pair(white)) > 0 {
+		if pair(black) > pair(white) {
+			return "Black Wins - Pair"
+		}
+		return "White Wins - Pair"
+	}
 
 	for _, v := range black {
 		if val(v.rank) > mxBlck {
@@ -75,4 +80,16 @@ func val(s string) int {
 	}
 
 	return n
+}
+
+func pair(hand cards) int {
+	found := 0
+	for i := 0; i < 4; i++ {
+		for j := i + 1; j < 5; j++ {
+			if hand[i].rank == hand[j].rank {
+				found++
+			}
+		}
+	}
+	return found
 }

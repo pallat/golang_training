@@ -89,3 +89,25 @@ func TestTie(t *testing.T) {
 		t.Error("result should be 'Tie' but was", result)
 	}
 }
+
+func TestBlackWinsByAPairOfTwo(t *testing.T) {
+	black := []card{
+		card{rank: "2", suit: "H"},
+		card{rank: "2", suit: "D"},
+		card{rank: "5", suit: "S"},
+		card{rank: "9", suit: "C"},
+		card{rank: "K", suit: "D"},
+	}
+	white := []card{
+		card{rank: "3", suit: "H"},
+		card{rank: "4", suit: "D"},
+		card{rank: "5", suit: "C"},
+		card{rank: "9", suit: "S"},
+		card{rank: "K", suit: "H"},
+	}
+
+	result := compare(black, white)
+	if result != "Black Wins - Pair" {
+		t.Error("result should be 'Black Wins - Pair' but was", result)
+	}
+}
